@@ -1,7 +1,11 @@
+import { FC } from 'react'
 import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
 
-const FormSection = (step : number) => {
+interface formSection {
+    step: number
+}
+const FormSection : FC<formSection> = ({step}) => {
 
     const handleStep = () => {
         switch(step) {
