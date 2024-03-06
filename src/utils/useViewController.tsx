@@ -5,7 +5,7 @@ type whereTo = 1 | 2 | 3 | 4
 const useViewController = () => {
     const [step, setStep] = useState(1)
 
-    const changeStep = (where : whereTo) => {
+    const changeStep = (where : number) => {
         switch(where) {
             case 1:
                 setStep(1)
