@@ -2,7 +2,7 @@ import { FC, HTMLAttributes, ReactNode } from 'react'
 import s from './button.module.sass'
 
 interface IButton extends HTMLAttributes<HTMLButtonElement> {
-    className: string
+    className?: string
     children: ReactNode
     type: any
 }
