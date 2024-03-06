@@ -1,10 +1,11 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import s from './button.module.sass'
 
+type validTypes = "submit" | "back" | "confirm" | "step"
 interface IButton extends HTMLAttributes<HTMLButtonElement> {
     className?: string
     children: ReactNode
-    type: any
+    type: validTypes
 }
 
 const Button : FC<IButton> = ({className, type, children, ...other}) => {

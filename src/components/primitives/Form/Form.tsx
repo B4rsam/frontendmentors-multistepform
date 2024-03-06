@@ -1,7 +1,7 @@
-import { FC, HTMLAttributes } from 'react'
+import { FC } from 'react'
 import s from './form.module.sass'
 
-interface IForm extends HTMLAttributes<HTMLFormElement> {
+interface IForm {
     className: string
     type: string
     placeHolder: string
