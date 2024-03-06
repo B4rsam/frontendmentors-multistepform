@@ -9,7 +9,7 @@ interface IForm {
 
 const Form : FC<IForm> = ({className, type, placeHolder, ...other}) => {
     return (
-        <input {...other} type={type} className={`${s.form} ${s[type]} ${className}`} />
+        <input {...other} type={type} className={`${s.form} ${s[type]} ${className}`} placeholder={placeHolder}/>
     )
 }
 

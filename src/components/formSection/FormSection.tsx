@@ -14,11 +14,11 @@ const FormSection : FC<formSection> = ({step}) => {
                     <div className={s.formSection}>
                         <p className={s.title}>Personal Info</p>
                         <p className={s.description}>Please enter your name, email address and phone number below:</p>
-                        <p>Name</p>
+                        <p className={s.formLabel}>Name</p>
                         <Form className={s.nameForm} type="textfield" placeHolder="John Doe"/>
-                        <p>Email</p>
+                        <p className={s.formLabel}>Email</p>
                         <Form className={s.nameForm} type="textfield" placeHolder="JohnDoe@gmail.com"/>
-                        <p>Number</p>
+                        <p className={s.formLabel}>Number</p>
                         <Form className={s.nameForm} type="textfield" placeHolder="+1 234 567 890"/>
                     </div> 
                 )
