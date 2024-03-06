@@ -13,9 +13,11 @@ interface stepButton {
 const StepButton : FC<stepButton> = ({step, stepLabel, stepContent, changeStep}) => {
     return (
         <label className={`${s.stepButton} ${step}`}>
-            <label className={s.stepLabel}>{stepLabel}</label>
             <Button type="step" children={step} onClick={() => changeStep(step)}/>
-            <p className={s.stepContent}>{stepContent}</p>
+            <div className={s.textBox}>
+                <label className={s.stepLabel}>{stepLabel}</label>
+                <p className={s.stepContent}>{stepContent}</p>    
+            </div>
         </label>
     )
 }
