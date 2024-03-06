@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className={s.mainBody}>
-      <FormSteps changeStep={changeStep}/>
+      <FormSteps changeStep={changeStep} step={step}/>
       <div className={s.rightBox}>
         <FormSection />
         <SubmitSection />

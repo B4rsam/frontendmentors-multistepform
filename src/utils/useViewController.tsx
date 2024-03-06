@@ -20,7 +20,6 @@ const useViewController = () => {
                 setStep(4)
                 break;
         }
-        console.log(step)
     }
 
     return {
