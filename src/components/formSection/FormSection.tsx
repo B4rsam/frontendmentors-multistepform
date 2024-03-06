@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
 import Button from '../primitives/Button/Button'
+import thanks from '../../assets/images/icon-thank-you.svg'
 
 interface formSection {
     step: number
@@ -54,8 +55,10 @@ const FormSection : FC<formSection> = ({step}) => {
                 )
             case 5:
                 return (
-                    <div className={s.formSection}>
-                        <p className={s.title}>big thancc</p>
+                    <div className={`${s.formSection} ${s.final}`}>
+                        <img src={thanks} className={s.tickPic}/>
+                        <p className={s.title}>Thank you!</p>
+                        <p className={s.thankYouText}>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
                     </div> 
                 )
         }
