@@ -1,1 +1,25 @@
 @import './assets/typography'
+@import './assets/palette'
+@import './utils/mediaQuery'
+
+:root
+    background-color: $primaryLightBlue
+
+.mainBody
+    height: 600px
+    width: 800px
+    margin: auto
+    margin-top: 10%
+    background-color: $white
+    border-radius: 20px
+    padding-inline: 18px
+    padding-block: 9px
+    box-shadow: 0px 4px 32px $neutralGray
+    display: flex
+
+    .rightBox
+        display: block
+
+    @include mobile
+        background-color: rgba(0,0,0,0)
+        box-shadow: 0 0 0 

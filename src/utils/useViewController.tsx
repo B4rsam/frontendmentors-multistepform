@@ -1,23 +1,31 @@
 import { useState } from "react"
 
-type backFor = "next" | "back"
+type whereTo = 1 | 2 | 3 | 4
 
 const useViewController = () => {
     const [step, setStep] = useState(1)
 
-    const changeStep = (where : backFor) => {
+    const changeStep = (where : whereTo) => {
         switch(where) {
-            case "next":
-                if (step != 5) {
-                    setStep(step+1)
-                }
+            case 1:
+                setStep(1)
                 break;
-            case "back":
-                if (step != 1) {
-                    setStep(step-1)
-                }
+            case 2:
+                setStep(2)
+                break;
+            case 3:
+                setStep(3)
+                break;
+            case 4:
+                setStep(4)
                 break;
         }
+        console.log(step)
+    }
+
+    return {
+        step,
+        changeStep,
     }
 }
 
