@@ -15,7 +15,7 @@ function App() {
     <div className={s.mainBody}>
       <FormSteps changeStep={changeStep} step={step}/>
       <div className={s.rightBox}>
-        <FormSection />
+        <FormSection step={step}/>
         <SubmitSection step={step} changeStep={changeStep}/>
       </div>
     </div>

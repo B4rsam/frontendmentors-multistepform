@@ -1,7 +1,5 @@
 import { useState } from "react"
 
-type whereTo = 1 | 2 | 3 | 4
-
 const useViewController = () => {
     const [step, setStep] = useState(1)
 
@@ -18,6 +16,9 @@ const useViewController = () => {
                 break;
             case 4:
                 setStep(4)
+                break;
+            case 5:
+                setStep(5)
                 break;
         }
     }

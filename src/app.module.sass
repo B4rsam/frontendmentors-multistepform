@@ -18,7 +18,11 @@
     display: flex
 
     .rightBox
-        display: block
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        margin-inline: 64px
+        margin-bottom: 18px
 
     @include mobile
         background-color: rgba(0,0,0,0)
