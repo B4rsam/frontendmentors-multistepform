@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
+import Button from '../primitives/Button/Button'
 
 interface formSection {
     step: number
@@ -27,6 +28,14 @@ const FormSection : FC<formSection> = ({step}) => {
                     <div className={s.formSection}>
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
+                        <div className={s.planButtons}>
+                            <Button className={"arcade"} children="arcade" type="radio"/>
+                            <Button className={"advanced"} children="arcade" type="radio"/>
+                            <Button className={"pro"} children="arcade" type="radio"/>
+                        </div>
+                        <div className={s.billing}>
+                            <p>plchlder</p>
+                        </div>
                     </div> 
                 )
             case 3:
