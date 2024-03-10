@@ -34,14 +34,21 @@
         background-color: rgba(0,0,0,0)
         color: $neutralGray
 
-    &.radio
-        height: 108px
-        width: 108px
-        margin: 8px
-        background-color: $white
-        border-radius: 10px 
-        border: solid 1.5px $neutralGrayLight
+.radioBody
+    height: 120px
+    width: 120px
+    padding: 8px
+    margin: 7px
+    background-color: $white
+    border-radius: 10px 
+    border: solid 1.5px $neutralGrayLight
+    
+    .radioPrice
+        font-size: 12px
+        color: $neutralGray
 
+    .radio
         &:checked
-            background-color: $neutralMagnolia
-            border-color: $primaryPurpleBlue
+            .radioBody
+                background-color: $neutralMagnolia !important
+                border-color: $primaryPurpleBlue !important

@@ -22,8 +22,8 @@ const Button : FC<IButton> = ({className, type, children, radioTitle, radioPrice
                     <label className={s.radioBody}>
                         <img src={radioImg}/>
                         <input type='radio' name="plans" className={`${s.button} ${s[type]}`} />
-                        <p>{radioTitle}</p>
-                        <p>{radioPrice}</p>
+                        <p className={s.radIOTitle}>{radioTitle}</p>
+                        <p className={s.radioPrice}>{radioPrice}</p>
                     </label>
                 ) 
             default:
