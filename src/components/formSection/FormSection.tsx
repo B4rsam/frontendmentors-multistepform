@@ -3,6 +3,9 @@ import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
 import Button from '../primitives/Button/Button'
 import thanks from '../../assets/images/icon-thank-you.svg'
+import arcade from '../../assets/images/icon-arcade.svg'
+import advanced from '../../assets/images/icon-advanced.svg'
+import pro from '../../assets/images/icon-pro.svg'
 
 interface formSection {
     step: number
@@ -30,9 +33,9 @@ const FormSection : FC<formSection> = ({step}) => {
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
                         <div className={s.planButtons}>
-                            <Button className={"arcade"} children="arcade" type="radio"/>
-                            <Button className={"advanced"} children="arcade" type="radio"/>
-                            <Button className={"pro"} children="arcade" type="radio"/>
+                            <Button className={"arcade"} radioTitle="Arcade" radioPrice="$9/mo" type="radio" radioImg={arcade}/>
+                            <Button className={"advanced"} radioTitle="Advanced" radioPrice="$12/mo" type="radio" radioImg={advanced}/>
+                            <Button className={"pro"} radioTitle="Pro" radioPrice="$15/mo" type="radio" radioImg={pro}/>
                         </div>
                         <div className={s.billing}>
                             <p>plchlder</p>

@@ -1,16 +1,40 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import s from './button.module.sass'
+import arcade from '../../../assets/images/icon-arcade.svg'
+import advanced from '../../../assets/images/icon-advanced.svg'
+import pro from '../../../assets/images/icon-pro.svg'
 
 type validTypes = "submit" | "back" | "confirm" | "step" | "radio"
 interface IButton extends HTMLAttributes<HTMLButtonElement> {
     className?: string
-    children: ReactNode
+    children?: ReactNode
     type: validTypes
+    radioTitle?: string
+    radioPrice?: string
+    radioImg?: string
 }
 
-const Button : FC<IButton> = ({className, type, children, ...other}) => {
+const Button : FC<IButton> = ({className, type, children, radioTitle, radioPrice, radioImg, ...other}) => {
+    const handleType = () => {
+        switch(type) {
+            case "radio":
+                return (
+                    <label className={s.radioBody}>
+                        <img src={radioImg}/>
+                        <input type='radio' name="plans" className={`${s.button} ${s[type]}`} />
+                        <p>{radioTitle}</p>
+                        <p>{radioPrice}</p>
+                    </label>
+                ) 
+            default:
+                return <button {...other} className={`${s.button} ${s[type]} ${className}`}>{children}</button>
+        }
+    }
     return (
-        <button {...other} className={`${s.button} ${s[type]} ${className}`}>{children}</button>
+        <>
+            {handleType()}
+        </>
+        
     )
 }
 
