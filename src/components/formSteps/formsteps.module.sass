@@ -12,10 +12,12 @@
     align-items: center
 
     @include mobile
-        position: absolute
-        top: 0
-        left: 0
         background-image: url("../../assets/images/bg-sidebar-mobile.svg")
-        width: 100% !important
-        height: auto !important
-        object-fit: contain
+        background-size: contain
+        background-repeat: no-repeat
+        width: 100vw !important
+        height: 256px !important
+        margin: 0
+        display: flex
+        justify-content: space-between
+        border-radius: 0px !important
