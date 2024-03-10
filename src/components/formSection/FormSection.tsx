@@ -33,7 +33,7 @@ const FormSection : FC<formSection> = ({step}) => {
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
                         <div className={s.planButtons}>
-                            <Button className={"arcade"} radioTitle="Arcade" radioPrice="$9/mo" type="radio" radioImg={arcade}/>
+                            <Button className={"arcade"} radioTitle="Arcade" radioPrice="$9/mo" type="radio" radioImg={arcade} defaultChecked={true}/>
                             <Button className={"advanced"} radioTitle="Advanced" radioPrice="$12/mo" type="radio" radioImg={advanced}/>
                             <Button className={"pro"} radioTitle="Pro" radioPrice="$15/mo" type="radio" radioImg={pro}/>
                         </div>
@@ -46,6 +46,9 @@ const FormSection : FC<formSection> = ({step}) => {
                 return (
                     <div className={s.formSection}>
                         <p className={s.title}>Pick add-ons</p>
+                        <Button type="checkbox"/>
+                        <Button type="checkbox"/>
+                        <Button type="checkbox"/>
                         <p className={s.description}>Addons help enhance the gaming experience.</p>
                     </div> 
                 )
