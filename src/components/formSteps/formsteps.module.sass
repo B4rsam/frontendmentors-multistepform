@@ -13,12 +13,16 @@
 
     @include mobile
         position: fixed
+        right: 0
+        left: 0
+        top: 0
         z-index: -1
         background-image: url("../../assets/images/bg-sidebar-mobile.svg")
-        background-size: contain
+        background-size: 100vw
         background-repeat: no-repeat
-        width: 100vw !important
-        height: 256px !important
+        width: 100vw
+        height: 256px
+        max-width: 100%
         margin: 0
         display: flex
         justify-content: space-between
@@ -26,7 +30,7 @@
 
         .stepContainer
             position: fixed
-            top: 15vh
+            top: 10vh
             left: 0
             right: 0
             margin-inline: 20vw
