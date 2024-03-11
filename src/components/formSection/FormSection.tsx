@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
-import Button from '../primitives/Button/Button'
 import Radio from '../primitives/Radio/Radio'
 import thanks from '../../assets/images/icon-thank-you.svg'
 import arcade from '../../assets/images/icon-arcade.svg'
@@ -34,9 +33,9 @@ const FormSection : FC<formSection> = ({step}) => {
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
                         <div className={s.planButtons}>
-                            <Radio radioName="plans"/>
-                            <Radio radioName="plans"/>
-                            <Radio radioName="plans"/>
+                            <Radio radioName="plans" radioTitle='Arcade' radioPrice='$9/mo' img={arcade}/>
+                            <Radio radioName="plans" radioTitle='Advanced' radioPrice='$9/mo' img={advanced}/>
+                            <Radio radioName="plans" radioTitle='Pro' radioPrice='$9/mo' img={pro}/>
                         </div>
                         <div className={s.billing}>
                             <p>plchlder</p>

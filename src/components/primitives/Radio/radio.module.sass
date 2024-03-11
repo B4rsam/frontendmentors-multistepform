@@ -2,21 +2,37 @@
 @import '../../../utils/mediaQuery'
 
 .radioHolder
+    margin: 7px
+    grid-template-columns: 1fr
+    display: grid
 
     .radioButton
+        position: relative
         height: 140px
         width: 120px
         padding: 8px
-        margin: 7px
         background-color: rgba(0,0,0,0)
         border-radius: 10px 
         border: solid 1.5px $neutralGrayLight
         appearance: none
+        grid-row-start: 1
+        grid-column-start: 1
 
         &:checked
             border-color: $primaryPurpleBlue
-            background-color: hsla(217, 100%, 97%, 0.5)
+            background-color: hsla(217, 100%, 97%, 0.3)
 
         &:hover
             cursor: pointer
+
+    .radioContent
+        margin-block: 14px
+        margin-inline: 24px
+        grid-row-start: 1
+        grid-column-start: 1
+
+        .radioPrice
+            font-size: 12px
+            color: $neutralGray
+        
 
