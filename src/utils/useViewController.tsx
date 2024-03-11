@@ -21,7 +21,15 @@ const useViewController = () => {
                 x = 15
                 break;
         }
-
+        if (services.online) {
+            x = x + 1
+        }
+        if (services.storage) {
+            x = x + 2
+        }
+        if (services.profile) {
+            x = x + 2
+        }
         return x
     }, [services, plan])
 
