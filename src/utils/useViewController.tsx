@@ -1,28 +1,29 @@
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 const useViewController = () => {
     const [step, setStep] = useState(1)
-    const [total, setTotal] = useState(0)
     const [services, setService] = useState({
         online: false,
         storage: false,
         profile: false,
     })
     const [plan, setPlan] = useState(0)
-
-    const calculate = () => {
+    const total = useMemo(() => {
+        let x
         switch(plan) {
             case 0:
-                setTotal(total + 9)
+                x = 9
                 break;
             case 1:
-                setTotal(total + 12)
+                x = 12
                 break;
             case 2:
-                setTotal(total + 15)
+                x = 15
                 break;
         }
-    }
+
+        return x
+    }, [services, plan])
 
     const changeStep = (where : number) => {
         switch(where) {
@@ -37,7 +38,6 @@ const useViewController = () => {
                 break;
             case 4:
                 setStep(4)
-                calculate()
                 break;
             case 5:
                 setStep(5)
@@ -45,24 +45,24 @@ const useViewController = () => {
         }
     }
 
-    const handleService = (value : boolean, index : number) => {
-        switch(index) {
+    const handleService = (value : boolean, id : number) => {
+        switch(id) {
             case 0:
                 setService({
                     ...services,
-                    online: Boolean(value)
+                    online: value
                 })
                 break;
             case 1:
                 setService({
                     ...services,
-                    storage: Boolean(value)
+                    storage: value
                 })
                 break;
             case 2:
                 setService({
                     ...services,
-                    profile: Boolean(value)
+                    profile: value
                 })
                 break;
         }
@@ -76,9 +76,9 @@ const useViewController = () => {
         step,
         total,
         services,
+        handleService,
         changeStep,
         handlePlan,
-        handleService,
     }
 }
 

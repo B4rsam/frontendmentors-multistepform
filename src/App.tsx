@@ -10,9 +10,9 @@ function App() {
     step,
     total,
     services,
+    handleService,
     changeStep,
     handlePlan,
-    handleService,
   } = useViewController()
 
   return (
