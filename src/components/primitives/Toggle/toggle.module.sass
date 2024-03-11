@@ -1,0 +1,28 @@
+@import '../../../assets/palette'
+@import '../../../utils/mediaQuery'
+
+.toggleBox
+    position: relative
+    height: 24px
+    width: 57px
+    border-radius: 20px
+    background-color: $primaryBlue
+    &:hover
+        cursor: pointer
+    
+    input
+        appearance: none
+
+        &:checked + .toggleControl
+            transform: translateX(33px)
+
+
+    .toggleControl
+        position: absolute
+        width: 20px
+        height: 20px
+        background-color: $white
+        border-radius: 100%
+        top: 2px
+        left: 2px
+        transition: 0.4s

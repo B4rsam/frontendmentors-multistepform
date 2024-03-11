@@ -6,6 +6,7 @@ import thanks from '../../assets/images/icon-thank-you.svg'
 import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
 import pro from '../../assets/images/icon-pro.svg'
+import Toggle from '../primitives/Toggle/Toggle'
 
 interface formSection {
     step: number
@@ -38,7 +39,9 @@ const FormSection : FC<formSection> = ({step}) => {
                             <Radio radioName="plans" radioTitle='Pro' radioPrice='$9/mo' img={pro}/>
                         </div>
                         <div className={s.billing}>
-                            <p>plchlder</p>
+                            <p>Monthly</p>
+                            <Toggle />
+                            <p>Annual</p>
                         </div>
                     </div> 
                 )
