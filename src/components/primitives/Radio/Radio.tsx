@@ -7,11 +7,12 @@ interface IRadio {
     img: string
     radioTitle: string
     radioPrice: string
+    onClick: (selection : number) => void
 }
-const Radio : FC<IRadio> = ({radioName, className, img, radioTitle, radioPrice, ...other}) => {
+const Radio : FC<IRadio> = ({radioName, className, img, radioTitle, radioPrice, onClick, ...other}) => {
     return (
         <label data-status={false} className={s.radioHolder}>
-            <input {...other} type="radio" name={radioName} className={`${s.radioButton} ${className}`} defaultChecked={false} />
+            <input {...other} onClick={onClick} type="radio" name={radioName} className={`${s.radioButton} ${className}`} defaultChecked={false} />
             <div className={s.radioContent}>
                 <img src={img}/>
                 <p className={s.radioTitle}>{radioTitle}</p>

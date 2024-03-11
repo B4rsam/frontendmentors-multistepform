@@ -3,7 +3,7 @@
 
 .holder
     background-color: rgba(0,0,0,0)
-    border: solid 2px $neutralGray
+    border: solid 2px $neutralGrayLight
     border-radius: 10px
     display: flex
     align-items: center
@@ -23,11 +23,13 @@
             border: solid 2px $neutralGrayLight
             border-radius: 5px
             margin-right: 16px
+            content: ""
 
             &:hover
                 cursor: pointer
 
             &:checked
+                content: url('../../../asset/images/icon-checkmark.svg')
                 background-color: $primaryPastelBlue
                 border-color: $primaryPastelBlue
 

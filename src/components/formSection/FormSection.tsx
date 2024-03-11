@@ -11,8 +11,16 @@ import Checkbox from '../primitives/Checkbox/Checkbox'
 
 interface formSection {
     step: number
+    total: number
+    services: any
+    handlePlan: (selection : number) => void
+    handleService: (value : boolean, index : number) => void
 }
-const FormSection : FC<formSection> = ({step}) => {
+const FormSection : FC<formSection> = ({step, total, services, handlePlan, handleService}) => {
+
+    const serviceChange = (val : number, e: any) => {
+        handleService(e.target.value, val)
+    }
 
     const handleStep = () => {
         switch(step) {
@@ -35,9 +43,9 @@ const FormSection : FC<formSection> = ({step}) => {
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
                         <div className={s.planButtons}>
-                            <Radio radioName="plans" radioTitle='Arcade' radioPrice='$9/mo' img={arcade}/>
-                            <Radio radioName="plans" radioTitle='Advanced' radioPrice='$9/mo' img={advanced}/>
-                            <Radio radioName="plans" radioTitle='Pro' radioPrice='$9/mo' img={pro}/>
+                            <Radio radioName="plans" radioTitle='Arcade' radioPrice='$9/mo' img={arcade} onClick={() => handlePlan(0)}/>
+                            <Radio radioName="plans" radioTitle='Advanced' radioPrice='$9/mo' img={advanced} onClick={() => handlePlan(1)}/>
+                            <Radio radioName="plans" radioTitle='Pro' radioPrice='$9/mo' img={pro} onClick={() => handlePlan(2)}/>
                         </div>
                         <div className={s.billing}>
                             <p>Monthly</p>
@@ -51,9 +59,9 @@ const FormSection : FC<formSection> = ({step}) => {
                     <div className={s.formSection}>
                         <p className={s.title}>Pick add-ons</p>
                         <p className={s.description}>Addons help enhance the gaming experience.</p>
-                        <Checkbox title="Online service" description='Access to online multiplayer games' price="+$1/mo"/>
-                        <Checkbox title="Larger storage" description='Extra 1TB cloud storage space' price="+$2/mo"/>
-                        <Checkbox title="Customizable profile" description='Custom profile theme' price="+$2/mo"/>
+                        <Checkbox defaultChecked={Boolean(services.online)} title="Online service" description='Access to online multiplayer games' price="+$1/mo" onChange={(e) => serviceChange(0,e)}/>
+                        <Checkbox defaultChecked={Boolean(services.storage)} title="Larger storage" description='Extra 1TB cloud storage space' price="+$2/mo" onChange={(e) => serviceChange(1,e)}/>
+                        <Checkbox defaultChecked={Boolean(services.profile)} title="Customizable profile" description='Custom profile theme' price="+$2/mo" onChange={(e) => serviceChange(2,e)}/>
                     </div> 
                 )
             case 4:
@@ -61,6 +69,13 @@ const FormSection : FC<formSection> = ({step}) => {
                     <div className={s.formSection}>
                         <p className={s.title}>Finishing up</p>
                         <p className={s.description}>Double-check everything looks okay before confirming.</p>
+                        <div className={s.services}>
+
+                        </div>
+                        <div className={s.pricing}>
+                            <p className={s.priceDetails}>Total (per month)</p>
+                            <p className={s.totalPrice}>{`+$${total}/mo`}</p>
+                        </div>
                     </div> 
                 )
             case 5:
