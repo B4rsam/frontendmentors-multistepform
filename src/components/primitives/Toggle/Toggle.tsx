@@ -1,9 +1,9 @@
 import s from './toggle.module.sass'
 
-const Toggle = () => {
+const Toggle = ({...other}) => {
     return (
         <label className={s.toggleBox}>
-            <input type="checkbox"/>
+            <input {...other} type="checkbox"/>
             <span className={s.toggleControl} />
         </label>
     )

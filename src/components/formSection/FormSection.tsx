@@ -7,6 +7,7 @@ import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
 import pro from '../../assets/images/icon-pro.svg'
 import Toggle from '../primitives/Toggle/Toggle'
+import Checkbox from '../primitives/Checkbox/Checkbox'
 
 interface formSection {
     step: number
@@ -50,6 +51,9 @@ const FormSection : FC<formSection> = ({step}) => {
                     <div className={s.formSection}>
                         <p className={s.title}>Pick add-ons</p>
                         <p className={s.description}>Addons help enhance the gaming experience.</p>
+                        <Checkbox title="Online service" description='Access to online multiplayer games' price="+$1/mo"/>
+                        <Checkbox title="Larger storage" description='Extra 1TB cloud storage space' price="+$2/mo"/>
+                        <Checkbox title="Customizable profile" description='Custom profile theme' price="+$2/mo"/>
                     </div> 
                 )
             case 4:

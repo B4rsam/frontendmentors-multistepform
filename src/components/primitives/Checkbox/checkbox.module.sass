@@ -1,0 +1,46 @@
+@import '../../../assets/palette'
+@import '../../../assets/typography'
+
+.holder
+    background-color: rgba(0,0,0,0)
+    border: solid 2px $neutralGray
+    border-radius: 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding-inline: 8px
+    height: 80px
+    margin-block: 16px
+
+    .rightSide
+        display: flex
+        align-items: center
+
+        input
+            appearance: none
+            width: 24px
+            height: 24px
+            border: solid 2px $neutralGrayLight
+            border-radius: 5px
+            margin-right: 16px
+
+            &:hover
+                cursor: pointer
+
+            &:checked
+                background-color: $primaryPastelBlue
+                border-color: $primaryPastelBlue
+
+        .checkboxContent
+            text-align: left
+            
+            .title
+                color: $primaryBlue
+
+            .description
+                color: $neutralGray
+
+    .price
+        text-align: right
+        color: $primaryPurpleBlue
+        
