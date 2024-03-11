@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import s from './button.module.sass'
 
-type validTypes = "submit" | "back" | "confirm" | "step" | "radio" | "checkbox"
+type validTypes = "submit" | "back" | "confirm" | "step"
 interface IButton extends HTMLAttributes<HTMLButtonElement> {
     className?: string
     children?: ReactNode
@@ -13,30 +13,9 @@ interface IButton extends HTMLAttributes<HTMLButtonElement> {
 }
 
 const Button : FC<IButton> = ({className, type, children, radioTitle, radioPrice, radioImg, defaultChecked, ...other}) => {
-    const handleType = () => {
-        switch(type) {
-            case "radio":
-                return (
-                    <label className={s.radioBody}>
-                        <img src={radioImg}/>
-                        <input type='radio' name="plans" className={`${s.button} ${s[type]}`} defaultChecked={defaultChecked}/>
-                        <p className={s.radIOTitle}>{radioTitle}</p>
-                        <p className={s.radioPrice}>{radioPrice}</p>
-                    </label>
-                ) 
-            case "checkbox":
-                return (
-                    <input type="checkbox"/>
-                )
-            default:
-                return <button {...other} className={`${s.button} ${s[type]} ${className}`}>{children}</button>
-        }
-    }
+    
     return (
-        <>
-            {handleType()}
-        </>
-        
+        <button {...other} className={`${s.button} ${s[type]} ${className}`}>{children}</button>
     )
 }
 

@@ -1,0 +1,22 @@
+@import '../../../assets/palette'
+@import '../../../utils/mediaQuery'
+
+.radioHolder
+
+    .radioButton
+        height: 140px
+        width: 120px
+        padding: 8px
+        margin: 7px
+        background-color: rgba(0,0,0,0)
+        border-radius: 10px 
+        border: solid 1.5px $neutralGrayLight
+        appearance: none
+
+        &:checked
+            border-color: $primaryPurpleBlue
+            background-color: hsla(217, 100%, 97%, 0.5)
+
+        &:hover
+            cursor: pointer
+

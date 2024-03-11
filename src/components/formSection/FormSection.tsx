@@ -2,6 +2,7 @@ import { FC } from 'react'
 import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
 import Button from '../primitives/Button/Button'
+import Radio from '../primitives/Radio/Radio'
 import thanks from '../../assets/images/icon-thank-you.svg'
 import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
@@ -33,9 +34,9 @@ const FormSection : FC<formSection> = ({step}) => {
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
                         <div className={s.planButtons}>
-                            <Button className={"arcade"} radioTitle="Arcade" radioPrice="$9/mo" type="radio" radioImg={arcade} defaultChecked={true}/>
-                            <Button className={"advanced"} radioTitle="Advanced" radioPrice="$12/mo" type="radio" radioImg={advanced}/>
-                            <Button className={"pro"} radioTitle="Pro" radioPrice="$15/mo" type="radio" radioImg={pro}/>
+                            <Radio radioName="plans"/>
+                            <Radio radioName="plans"/>
+                            <Radio radioName="plans"/>
                         </div>
                         <div className={s.billing}>
                             <p>plchlder</p>
@@ -46,9 +47,6 @@ const FormSection : FC<formSection> = ({step}) => {
                 return (
                     <div className={s.formSection}>
                         <p className={s.title}>Pick add-ons</p>
-                        <Button type="checkbox"/>
-                        <Button type="checkbox"/>
-                        <Button type="checkbox"/>
                         <p className={s.description}>Addons help enhance the gaming experience.</p>
                     </div> 
                 )
