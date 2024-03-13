@@ -15,3 +15,20 @@
 
     .formLabel
         font-size: 12px
+
+    @include mobile
+        box-shadow: 0px 4px 32px $neutralGray
+        background-color: $white
+        border-radius: 10px
+        padding: 16px
+        margin: auto !important
+        width: 85vw !important
+        height: 50vh
+        margin-top: 20vh !important
+        overflow: scroll
+
+        .description
+            font-size: 18px
+        
+        .formLabel
+            font-size: 16px

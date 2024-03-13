@@ -1,0 +1,80 @@
+@import '../../../assets/palette'
+@import '../../../utils/mediaQuery'
+
+.formSection
+
+    .title
+        color: $primaryBlue
+        font-weight: 600
+        font-size: 32px
+
+    .description
+        font-size: 14px
+        color: $neutralGray
+
+    .services
+        background-color: $neutralMagnolia
+        border-radius: 20px
+        padding-block: 8px
+        padding-inline: 16px
+        
+        .planSection
+            border-bottom: solid 2px $neutralGrayLight
+            padding-bottom: 16px
+
+            .planDetails
+                display: flex
+                justify-content: space-between
+                align-items: center
+
+                .planTitle
+                    color: $primaryBlue
+                    font-weight: 700
+
+                .planPrice
+                    color: $primaryBlue
+
+        .addonSection
+
+            .addon
+                display: flex
+                justify-content: space-between
+                align-items: center
+                color: $neutralGray
+
+                .addonTitle
+                    font-size: 12px
+
+                .addonPrice
+                    font-weight: 600
+                    font-size: 14px
+        
+    .pricing
+        display: flex
+        justify-content: space-between
+        margin-block: 8px
+
+        .priceDetails
+            font-size: 14px
+            color: $neutralGray
+
+        .totalPrice
+            font-weight: 700
+            color: $primaryPurpleBlue
+
+    @include mobile
+        box-shadow: 0px 4px 32px $neutralGray
+        background-color: $white
+        border-radius: 10px
+        padding: 16px
+        margin: auto !important
+        width: 85vw !important
+        height: 50vh
+        margin-top: 20vh !important
+        overflow: scroll
+
+        .description
+            font-size: 18px
+        
+        .formLabel
+            font-size: 16px
