@@ -1,16 +1,35 @@
 import { useMemo, useState } from "react"
 
 const useViewController = () => {
-    const [step, setStep] = useState(1)
+
+    interface dataType {
+        name: string | null
+        email: string | null
+        number: string | null
+        plan: number | null
+        online: boolean
+        storage: boolean
+        profile: boolean
+    }
+    let userData : dataType = {
+        name: null,
+        email: null,
+        number: null,
+        plan: null,
+        online: false,
+        storage: false,
+        profile: false,
+    }
     const [services, setService] = useState({
         online: false,
         storage: false,
         profile: false,
     })
+    const [step, setStep] = useState(1)
     const [plan, setPlan] = useState(0)
 
     const total = useMemo(() => {
-        let x : number
+        let x = 0
         switch(plan) {
             case 0:
                 x = 9
@@ -81,6 +100,11 @@ const useViewController = () => {
         setPlan(selection)
     }
 
+    const writeToStorage = () => {
+        window.localStorage.setItem("userData", JSON.stringify(userData))
+        console.log(userData)
+    }
+
     return {
         step,
         total,
@@ -89,6 +113,7 @@ const useViewController = () => {
         handleService,
         changeStep,
         handlePlan,
+        writeToStorage
     }
 }
 

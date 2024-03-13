@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
-import Radio from '../primitives/Radio/Radio'
+import Radio from '../../components/primitives/Radio/Radio'
 import thanks from '../../assets/images/icon-thank-you.svg'
 import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
