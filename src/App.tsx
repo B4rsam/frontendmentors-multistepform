@@ -11,6 +11,7 @@ function App() {
     total,
     services,
     plan,
+    userData,
     handleService,
     changeStep,
     handlePlan,
@@ -21,7 +22,7 @@ function App() {
     <div className={s.mainBody}>
       <FormSteps changeStep={changeStep} step={step}/>
       <div className={s.rightBox}>
-        <FormSection step={step} total={total} handlePlan={handlePlan} services={services} handleService={handleService} plan={plan} changeStep={changeStep} />
+        <FormSection step={step} total={total} handlePlan={handlePlan} services={services} handleService={handleService} plan={plan} changeStep={changeStep} userData={userData}/>
         <SubmitSection step={step} changeStep={changeStep} writeToStorage={writeToStorage}/>
       </div>
     </div>

@@ -110,6 +110,7 @@ const useViewController = () => {
         total,
         services,
         plan,
+        userData,
         handleService,
         changeStep,
         handlePlan,
