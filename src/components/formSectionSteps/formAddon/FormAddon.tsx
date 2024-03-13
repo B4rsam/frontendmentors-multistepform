@@ -5,8 +5,10 @@ import { FC } from 'react'
 interface IFormAddon {
     services: any
     handleService: any
+    userData: any
 }
-const FormAddon : FC<IFormAddon>= ({services, handleService}) => {
+const FormAddon : FC<IFormAddon>= ({services, handleService, userData}) => {
+
     return (
         <div className={s.formSection}>
             <p className={s.title}>Pick add-ons</p>

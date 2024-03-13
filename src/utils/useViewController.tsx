@@ -15,7 +15,7 @@ const useViewController = () => {
         name: null,
         email: null,
         number: null,
-        plan: null,
+        plan: 0,
         online: false,
         storage: false,
         profile: false,
@@ -94,6 +94,7 @@ const useViewController = () => {
                 })
                 break;
         }
+        console.log(userData)
     }
 
     const handlePlan = (selection : number) => {
@@ -102,7 +103,6 @@ const useViewController = () => {
 
     const writeToStorage = () => {
         window.localStorage.setItem("userData", JSON.stringify(userData))
-        console.log(userData)
     }
 
     return {
