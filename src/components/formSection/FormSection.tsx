@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Form from '../primitives/Form/Form'
 import s from './formsection.module.sass'
 import Radio from '../../components/primitives/Radio/Radio'
 import thanks from '../../assets/images/icon-thank-you.svg'
@@ -9,6 +8,9 @@ import pro from '../../assets/images/icon-pro.svg'
 import Toggle from '../primitives/Toggle/Toggle'
 import Checkbox from '../primitives/Checkbox/Checkbox'
 import Button from '../primitives/Button/Button'
+import FormInfo from '../formSectionSteps/formInfo/FormInfo'
+import FormPlan from '../formSectionSteps/formPlan/FormPlan'
+import FormAddon from '../formSectionSteps/formAddon/FormAddon'
 
 interface formSection {
     step: number
@@ -25,43 +27,15 @@ const FormSection : FC<formSection> = ({step, plan, total, services, handlePlan,
         switch(step) {
             case 1:
                 return (
-                    <div className={s.formSection}>
-                        <p className={s.title}>Personal Info</p>
-                        <p className={s.description}>Please enter your name, email address and phone number below:</p>
-                        <p className={s.formLabel}>Name</p>
-                        <Form className={s.nameForm} type="textfield" placeHolder="John Doe"/>
-                        <p className={s.formLabel}>Email</p>
-                        <Form className={s.nameForm} type="textfield" placeHolder="JohnDoe@gmail.com"/>
-                        <p className={s.formLabel}>Number</p>
-                        <Form className={s.nameForm} type="textfield" placeHolder="+1 234 567 890"/>
-                    </div> 
+                    <FormInfo />
                 )
             case 2:
                 return (
-                    <div className={s.formSection}>
-                        <p className={s.title}>Select your plan</p>
-                        <p className={s.description}>You have the option of monthly or annual billing.</p>
-                        <div className={s.planButtons}>
-                            <Radio radioName="plans" plan={plan} radioTitle='Arcade' radioPrice='$9/mo' img={arcade} onClick={() => handlePlan(0)}/>
-                            <Radio radioName="plans" plan={plan} radioTitle='Advanced' radioPrice='$12/mo' img={advanced} onClick={() => handlePlan(1)}/>
-                            <Radio radioName="plans" plan={plan} radioTitle='Pro' radioPrice='$15/mo' img={pro} onClick={() => handlePlan(2)}/>
-                        </div>
-                        <div className={s.billing}>
-                            <p>Monthly</p>
-                            <Toggle />
-                            <p>Annual</p>
-                        </div>
-                    </div> 
+                    <FormPlan plan={plan} handlePlan={handlePlan} arcade={arcade} advanced={advanced} pro={pro}/>
                 )
             case 3:
                 return (
-                    <div className={s.formSection}>
-                        <p className={s.title}>Pick add-ons</p>
-                        <p className={s.description}>addons help enhance the gaming experience.</p>
-                        <Checkbox defaultChecked={services.online} title="Online service" description='Access to online multiplayer games' price="+$1/mo" id={0} handleService={handleService}/>
-                        <Checkbox defaultChecked={services.storage} title="Larger storage" description='Extra 1TB cloud storage space' price="+$2/mo" id= {1} handleService={handleService}/>
-                        <Checkbox defaultChecked={services.profile} title="Customizable profile" description='Custom profile theme' price="+$2/mo" id={2} handleService={handleService}/>
-                    </div> 
+                    <FormAddon services={services} handleService={handleService}/>
                 )
             case 4:
                 return (
