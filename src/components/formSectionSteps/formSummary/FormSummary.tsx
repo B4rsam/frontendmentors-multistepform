@@ -4,11 +4,11 @@ import { FC } from 'react'
 
 interface IFormSummary {
     plan: number
-    services: any
+    data: any
     total: number
     changeStep: (where: number) => void
 }
-const FormSummary : FC<IFormSummary>= ({plan, services, total, changeStep}) => {
+const FormSummary : FC<IFormSummary>= ({plan, data, total, changeStep}) => {
     return (
         <div className={s.formSection}>
             <p className={s.title}>Finishing up</p>
@@ -36,15 +36,15 @@ const FormSummary : FC<IFormSummary>= ({plan, services, total, changeStep}) => {
                     </div> : null}
                 </div>
                 <div className={s.addonSection}>
-                    {services.online ? <div className={`${s.addon} ${s.addonOnline}`}>
+                    {data.online ? <div className={`${s.addon} ${s.addonOnline}`}>
                         <p className={s.addonTitle}>Online service</p>
                         <p className={s.addonPrice}>+$1/mo</p>
                     </div> : null}
-                    {services.storage ? <div className={`${s.addon} ${s.addonStorage}`}>
+                    {data.storage ? <div className={`${s.addon} ${s.addonStorage}`}>
                         <p className={s.addonTitle}>Cloud Storage</p>
                         <p className={s.addonPrice}>+$2/mo</p>
                     </div> : null}
-                    {services.profile ? <div className={`${s.addon} ${s.addonProfile}`}>
+                    {data.profile ? <div className={`${s.addon} ${s.addonProfile}`}>
                         <p className={s.addonTitle}>Profile Customization</p>
                         <p className={s.addonPrice}>+$2/mo</p>
                     </div> : null}

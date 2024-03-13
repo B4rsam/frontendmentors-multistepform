@@ -1,26 +1,22 @@
 import { useMemo, useState } from "react"
 
+interface dataType {
+    name: string | null
+    email: string | null
+    number: string | null
+    plan: number | null
+    online: boolean
+    storage: boolean
+    profile: boolean
+}
+
 const useViewController = () => {
 
-    interface dataType {
-        name: string | null
-        email: string | null
-        number: string | null
-        plan: number | null
-        online: boolean
-        storage: boolean
-        profile: boolean
-    }
-    let userData : dataType = {
+    const [data, setData] = useState({
         name: null,
         email: null,
         number: null,
         plan: 0,
-        online: false,
-        storage: false,
-        profile: false,
-    }
-    const [services, setService] = useState({
         online: false,
         storage: false,
         profile: false,
@@ -41,17 +37,17 @@ const useViewController = () => {
                 x = 15
                 break;
         }
-        if (services.online) {
+        if (data.online) {
             x = x + 1
         }
-        if (services.storage) {
+        if (data.storage) {
             x = x + 2
         }
-        if (services.profile) {
+        if (data.profile) {
             x = x + 2
         }
         return x
-    }, [services, plan])
+    }, [data, plan])
 
     const changeStep = (where : number) => {
         switch(where) {
@@ -76,25 +72,49 @@ const useViewController = () => {
     const handleService = (value : boolean, id : number) => {
         switch(id) {
             case 0:
-                setService({
-                    ...services,
+                setData({
+                    ...data,
                     online: value
                 })
                 break;
             case 1:
-                setService({
-                    ...services,
+                setData({
+                    ...data,
                     storage: value
                 })
                 break;
             case 2:
-                setService({
-                    ...services,
+                setData({
+                    ...data,
                     profile: value
                 })
                 break;
         }
-        console.log(userData)
+        console.log(data)
+    }
+
+    const handleInput = (e : any, form : number) => {
+        switch(form) {
+            case 1:
+                setData({
+                    ...data,
+                    name: e.target.value
+                })
+                break;
+            case 2:
+                setData({
+                    ...data,
+                    email: e.target.value
+                })
+                break;
+            case 3:
+                setData({
+                    ...data,
+                    number: e.target.value
+                })
+                break;
+        }
+        console.log(data)
     }
 
     const handlePlan = (selection : number) => {
@@ -102,19 +122,19 @@ const useViewController = () => {
     }
 
     const writeToStorage = () => {
-        window.localStorage.setItem("userData", JSON.stringify(userData))
+        window.localStorage.setItem("data", JSON.stringify(data))
     }
 
     return {
         step,
         total,
-        services,
+        data,
         plan,
-        userData,
         handleService,
         changeStep,
         handlePlan,
-        writeToStorage
+        writeToStorage,
+        handleInput,
     }
 }
 

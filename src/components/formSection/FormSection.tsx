@@ -11,22 +11,22 @@ import FormFinal from '../formSectionSteps/formFinal/FormFinal'
 import FormSummary from '../formSectionSteps/formSummary/FormSummary'
 
 interface formSection {
-    userData: object
+    data: any
     step: number
     total: number
-    services: any
     plan: number
     handleService: any
     changeStep: (where: number) => void 
     handlePlan: (selection : number) => void
+    handleInput: (e: any, plan: number) => void
 }
-const FormSection : FC<formSection> = ({step, plan, total, services, handlePlan, handleService, changeStep, userData}) => {
+const FormSection : FC<formSection> = ({step, plan, total, data, handlePlan, handleService, changeStep, handleInput}) => {
 
     const handleStep = () => {
         switch(step) {
             case 1:
                 return (
-                    <FormInfo userData={userData}/>
+                    <FormInfo handleInput={handleInput}/>
                 )
             case 2:
                 return (
@@ -34,11 +34,11 @@ const FormSection : FC<formSection> = ({step, plan, total, services, handlePlan,
                 )
             case 3:
                 return (
-                    <FormAddon services={services} handleService={handleService} userData={userData}/>
+                    <FormAddon data={data} handleService={handleService} />
                 )
             case 4:
                 return (
-                    <FormSummary services={services} plan={plan} total={total} changeStep={changeStep}/>
+                    <FormSummary data={data} plan={plan} total={total} changeStep={changeStep}/>
                 )
             case 5:
                 return (

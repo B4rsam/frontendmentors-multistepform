@@ -2,19 +2,19 @@ import { FC } from 'react'
 import Button from '../primitives/Button/Button'
 import s from './submitsection.module.sass'
 
-interface submitSection {
+interface ISubmitSection {
     step: number
-    userdata: any
+    data: any
     changeStep: (where: number) => void
     writeToStorage: () => void
 }
 
-const SubmitSection : FC<submitSection>= ({step, changeStep, writeToStorage, userData}) => {
+const SubmitSection : FC<ISubmitSection>= ({step, changeStep, writeToStorage, data}) => {
 
     const handleSubmit = () => {
         switch(step) {
             case 1:
-                if (userData.name === null || userData.email === null || userData.number === null) {
+                if (data.name === null || data.email === null || data.number === null) {
                     break;
                 }
                 else {
@@ -29,6 +29,7 @@ const SubmitSection : FC<submitSection>= ({step, changeStep, writeToStorage, use
             default:
                 writeToStorage()
                 changeStep(step+1)
+
         }
     }
 

@@ -9,21 +9,21 @@ function App() {
   const {
     step,
     total,
-    services,
     plan,
-    userData,
+    data,
     handleService,
     changeStep,
     handlePlan,
     writeToStorage,
+    handleInput,
   } = useViewController()
 
   return (
     <div className={s.mainBody}>
       <FormSteps changeStep={changeStep} step={step}/>
       <div className={s.rightBox}>
-        <FormSection step={step} total={total} handlePlan={handlePlan} services={services} handleService={handleService} plan={plan} changeStep={changeStep} userData={userData}/>
-        <SubmitSection step={step} changeStep={changeStep} writeToStorage={writeToStorage} userData={userData}/>
+        <FormSection step={step} total={total} handlePlan={handlePlan} data={data} handleService={handleService} plan={plan} changeStep={changeStep}  handleInput={handleInput}/>
+        <SubmitSection step={step} changeStep={changeStep} writeToStorage={writeToStorage} data={data}/>
       </div>
     </div>
   )

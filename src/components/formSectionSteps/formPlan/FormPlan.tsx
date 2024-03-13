@@ -4,7 +4,7 @@ import Toggle from '../../primitives/Toggle/Toggle'
 import { FC } from 'react'
 
 interface IFormPlan {
-    handlePlan: (selectio: number) => void
+    handlePlan: (selection: number) => void
     plan: number
     arcade: string
     advanced: string

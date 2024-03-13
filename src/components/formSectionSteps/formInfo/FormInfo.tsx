@@ -3,23 +3,9 @@ import Form from '../../primitives/Form/Form'
 import { FC } from 'react'
 
 interface IFormInfo {
-    userData: any
+    handleInput: (e: any, plan: number) => void
 }
-const FormInfo : FC<IFormInfo>= ({userData}) => {
-
-    const handleInput = (e : any, form : number) => {
-        switch(form) {
-            case 1:
-                userData.name = e.target.value
-                break;
-            case 2:
-                userData.email = e.target.value
-                break;
-            case 3:
-                userData.number = e.target.value
-                break;
-        }
-    }
+const FormInfo : FC<IFormInfo>= ({handleInput}) => {
 
     return (
         <div className={s.formSection}>
