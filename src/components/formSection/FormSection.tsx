@@ -1,16 +1,14 @@
 import { FC } from 'react'
 import s from './formsection.module.sass'
-import Radio from '../../components/primitives/Radio/Radio'
 import thanks from '../../assets/images/icon-thank-you.svg'
 import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
 import pro from '../../assets/images/icon-pro.svg'
-import Toggle from '../primitives/Toggle/Toggle'
-import Checkbox from '../primitives/Checkbox/Checkbox'
 import Button from '../primitives/Button/Button'
 import FormInfo from '../formSectionSteps/formInfo/FormInfo'
 import FormPlan from '../formSectionSteps/formPlan/FormPlan'
 import FormAddon from '../formSectionSteps/formAddon/FormAddon'
+import FormFinal from '../formSectionSteps/formFinal/FormFinal'
 
 interface formSection {
     step: number
@@ -87,11 +85,7 @@ const FormSection : FC<formSection> = ({step, plan, total, services, handlePlan,
                 )
             case 5:
                 return (
-                    <div className={`${s.formSection} ${s.final}`}>
-                        <img src={thanks} className={s.tickPic}/>
-                        <p className={s.title}>Thank you!</p>
-                        <p className={s.thankYouText}>Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loremgaming.com</p>
-                    </div> 
+                    <FormFinal thanks={thanks}/>
                 )
         }
     }
