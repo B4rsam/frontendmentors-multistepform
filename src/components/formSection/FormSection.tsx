@@ -15,9 +15,9 @@ interface formSection {
     total: number
     services: any
     plan: number
+    handleService: any
     changeStep: (where: number) => void 
     handlePlan: (selection : number) => void
-    handleService: any
 }
 const FormSection : FC<formSection> = ({step, plan, total, services, handlePlan, handleService, changeStep}) => {
 
@@ -42,9 +42,9 @@ const FormSection : FC<formSection> = ({step, plan, total, services, handlePlan,
                         <p className={s.title}>Select your plan</p>
                         <p className={s.description}>You have the option of monthly or annual billing.</p>
                         <div className={s.planButtons}>
-                            <Radio radioName="plans" radioTitle='Arcade' radioPrice='$9/mo' img={arcade} onClick={() => handlePlan(0)}/>
-                            <Radio radioName="plans" radioTitle='Advanced' radioPrice='$12/mo' img={advanced} onClick={() => handlePlan(1)}/>
-                            <Radio radioName="plans" radioTitle='Pro' radioPrice='$15/mo' img={pro} onClick={() => handlePlan(2)}/>
+                            <Radio radioName="plans" plan={plan} radioTitle='Arcade' radioPrice='$9/mo' img={arcade} onClick={() => handlePlan(0)}/>
+                            <Radio radioName="plans" plan={plan} radioTitle='Advanced' radioPrice='$12/mo' img={advanced} onClick={() => handlePlan(1)}/>
+                            <Radio radioName="plans" plan={plan} radioTitle='Pro' radioPrice='$15/mo' img={pro} onClick={() => handlePlan(2)}/>
                         </div>
                         <div className={s.billing}>
                             <p>Monthly</p>
