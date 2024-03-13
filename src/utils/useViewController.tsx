@@ -8,8 +8,9 @@ const useViewController = () => {
         profile: false,
     })
     const [plan, setPlan] = useState(0)
+
     const total = useMemo(() => {
-        let x
+        let x : number
         switch(plan) {
             case 0:
                 x = 9
@@ -84,6 +85,7 @@ const useViewController = () => {
         step,
         total,
         services,
+        plan,
         handleService,
         changeStep,
         handlePlan,
