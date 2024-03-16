@@ -18,7 +18,6 @@ const SubmitSection : FC<ISubmitSection>= ({step, changeStep, writeToStorage, da
                     break;
                 }
                 else {
-                    writeToStorage()
                     changeStep(2)
                     break;
                 }
@@ -27,7 +26,6 @@ const SubmitSection : FC<ISubmitSection>= ({step, changeStep, writeToStorage, da
                 break;
 
             default:
-                writeToStorage()
                 changeStep(step+1)
 
         }

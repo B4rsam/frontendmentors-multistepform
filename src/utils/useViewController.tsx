@@ -83,6 +83,7 @@ const useViewController = () => {
                 setStep(5)
                 break;
         }
+        writeToStorage()
     }
 
     const handleService = (value : boolean, id : number) => {
