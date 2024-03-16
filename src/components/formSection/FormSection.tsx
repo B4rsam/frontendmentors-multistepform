@@ -14,14 +14,13 @@ interface formSection {
     data: any
     step: number
     total: number
-    plan: number
     handleService: (e: any, id: number) => void
     changeStep: (where: number) => void 
     handlePlan: (selection : number) => void
     handleInput: (e: any, plan: number) => void
     handleAnnual: () => void
 }
-const FormSection : FC<formSection> = ({step, plan, total, data, handlePlan, handleService, changeStep, handleInput, handleAnnual}) => {
+const FormSection : FC<formSection> = ({step, total, data, handlePlan, handleService, changeStep, handleInput, handleAnnual}) => {
 
     const handleStep = () => {
         switch(step) {
@@ -31,7 +30,7 @@ const FormSection : FC<formSection> = ({step, plan, total, data, handlePlan, han
                 )
             case 2:
                 return (
-                    <FormPlan plan={plan} handlePlan={handlePlan} arcade={arcade} advanced={advanced} pro={pro} data={data} handleAnnual={handleAnnual}/>
+                    <FormPlan handlePlan={handlePlan} arcade={arcade} advanced={advanced} pro={pro} data={data} handleAnnual={handleAnnual}/>
                 )
             case 3:
                 return (
@@ -39,7 +38,7 @@ const FormSection : FC<formSection> = ({step, plan, total, data, handlePlan, han
                 )
             case 4:
                 return (
-                    <FormSummary data={data} plan={plan} total={total} changeStep={changeStep}/>
+                    <FormSummary data={data} total={total} changeStep={changeStep}/>
                 )
             case 5:
                 return (

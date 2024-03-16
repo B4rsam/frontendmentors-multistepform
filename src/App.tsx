@@ -9,7 +9,6 @@ function App() {
   const {
     step,
     total,
-    plan,
     data,
     handleService,
     changeStep,
@@ -23,7 +22,7 @@ function App() {
     <div className={s.mainBody}>
       <FormSteps changeStep={changeStep} step={step} data={data}/>
       <div className={s.rightBox}>
-        <FormSection step={step} total={total} handlePlan={handlePlan} data={data} handleService={handleService} plan={plan} changeStep={changeStep}  handleInput={handleInput} handleAnnual={handleAnnual}/>
+        <FormSection step={step} total={total} handlePlan={handlePlan} data={data} handleService={handleService} changeStep={changeStep}  handleInput={handleInput} handleAnnual={handleAnnual}/>
         <SubmitSection step={step} changeStep={changeStep} writeToStorage={writeToStorage} data={data}/>
       </div>
     </div>

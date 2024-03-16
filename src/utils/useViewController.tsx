@@ -15,12 +15,11 @@ const useViewController = () => {
         profile: false,
     })
     const [step, setStep] = useState(1)
-    const [plan, setPlan] = useState(0)
 
     const total = useMemo(() => {
         let x = 0
         if (!data.annual) {
-            switch(plan) {
+            switch(data.plan) {
                 case 0:
                     x = 9
                     break;
@@ -42,7 +41,7 @@ const useViewController = () => {
             }
         }
         else {
-            switch(plan) {
+            switch(data.plan) {
                 case 0:
                     x = 90
                     break;
@@ -64,7 +63,7 @@ const useViewController = () => {
             }
         }
         return x
-    }, [data, plan])
+    }, [data])
 
     const changeStep = (where : number) => {
         switch(where) {
@@ -135,7 +134,6 @@ const useViewController = () => {
     }
 
     const handlePlan = (selection : number) => {
-        setPlan(selection)
         setData({
             ...data,
             plan: selection
@@ -157,7 +155,6 @@ const useViewController = () => {
         step,
         total,
         data,
-        plan,
         handleService,
         changeStep,
         handlePlan,

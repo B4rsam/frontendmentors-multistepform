@@ -3,31 +3,30 @@ import Button from '../../primitives/Button/Button'
 import { FC } from 'react'
 
 interface IFormSummary {
-    plan: number
     data: any
     total: number
     changeStep: (where: number) => void
 }
-const FormSummary : FC<IFormSummary>= ({plan, data, total, changeStep}) => {
+const FormSummary : FC<IFormSummary>= ({data, total, changeStep}) => {
     return (
         <div className={s.formSection}>
             <p className={s.title}>Finishing up</p>
             <p className={s.description}>Double-check everything looks okay before confirming.</p>
             <div className={s.services}>
                 <div className={s.planSection}>
-                    { plan === 0 ? <div className={s.planDetails}>
+                    { data.plan === 0 ? <div className={s.planDetails}>
                         <div className={s.options}>
                             <p className={s.planTitle}>Arcade{data.annual ? " (Annual)" : null}</p>
                             <Button type="summaryBack" children="Change" className={s.planChange} onClick={() => changeStep(2)}/>
                         </div>
                         <p className={s.planPrice}>{data.annual ? "$90/yr" : "$9/mo"}</p>
-                    </div> : plan === 1 ? <div className={s.planDetails}> 
+                    </div> : data.plan === 1 ? <div className={s.planDetails}> 
                         <div className={s.options}>
                                 <p className={s.planTitle}>Advanced{data.annual ? " (Annual)" : null}</p>
                                 <Button type="summaryBack" children="Change" className={s.planChange} onClick={() => changeStep(2)}/>
                             </div>
                             <p className={s.planPrice}>{data.annual ? "$120/yr" : "$12/mo"}</p>
-                    </div> : plan === 2 ? <div className={s.planDetails}>
+                    </div> : data.plan === 2 ? <div className={s.planDetails}>
                         <div className={s.options}>
                                 <p className={s.planTitle}>Pro{data.annual ? " (Annual)" : null}</p>
                                 <Button type="summaryBack" children="Change" className={s.planChange} onClick={() => changeStep(2)}/>
