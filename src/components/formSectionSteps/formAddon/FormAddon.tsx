@@ -1,9 +1,10 @@
 import s from './formaddon.module.sass'
 import Checkbox from '../../primitives/Checkbox/Checkbox'
 import { FC } from 'react'
+import { dataObject } from '../../../utils/interface'
 
 interface IFormAddon {
-    data: any
+    data: dataObject
     handleService: (value: boolean, id: number) => void
 }
 const FormAddon : FC<IFormAddon>= ({data, handleService }) => {

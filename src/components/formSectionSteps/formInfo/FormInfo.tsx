@@ -1,9 +1,10 @@
 import s from './forminfo.module.sass'
 import Form from '../../primitives/Form/Form'
 import { FC } from 'react'
+import { dataObject } from '../../../utils/interface'
 
 interface IFormInfo {
-    data: any
+    data: dataObject
     handleInput: (e: any, plan: number) => void
 }
 const FormInfo : FC<IFormInfo>= ({handleInput, data}) => {
@@ -17,7 +18,7 @@ const FormInfo : FC<IFormInfo>= ({handleInput, data}) => {
             <p className={s.formLabel}>Email</p>
             <Form className={s.nameForm} type="textfield" placeHolder={data.email ? data.email : "johndoe@gmail.com"} onChange={(e : any) => handleInput(e,2)}/>
             <p className={s.formLabel}>Number</p>
-            <Form className={s.nameForm} type="textfield" placeHolder={data.number ? data.number : "+1 234 5678"} onChange={(e : any) => handleInput(e,3)}/>
+            <Form className={s.nameForm} type="textfield" placeHolder={data.number ? String(data.number) : "+1 234 5678"} onChange={(e : any) => handleInput(e,3)}/>
         </div> 
     )
 }

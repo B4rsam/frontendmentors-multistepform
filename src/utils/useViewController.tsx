@@ -1,19 +1,11 @@
 import { useMemo, useState } from "react"
+import { DATA_INITIAL_VALUE } from "./interface"
 
 const useViewController = () => {
 
     const numberRegex = /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d*)\)?)[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?)+)(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/i
 
-    const [data, setData] = useState({
-        name: null,
-        email: null,
-        number: null,
-        plan: 0,
-        annual: false,
-        online: false,
-        storage: false,
-        profile: false,
-    })
+    const [data, setData] = useState(DATA_INITIAL_VALUE)
     const [step, setStep] = useState(1)
 
     const total = useMemo(() => {

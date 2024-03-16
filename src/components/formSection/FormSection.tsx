@@ -8,9 +8,10 @@ import FormPlan from '../formSectionSteps/formPlan/FormPlan'
 import FormAddon from '../formSectionSteps/formAddon/FormAddon'
 import FormFinal from '../formSectionSteps/formFinal/FormFinal'
 import FormSummary from '../formSectionSteps/formSummary/FormSummary'
+import { dataObject } from '../../utils/interface'
 
 interface formSection {
-    data: any
+    data: dataObject
     step: number
     total: number
     handleService: (e: any, id: number) => void
