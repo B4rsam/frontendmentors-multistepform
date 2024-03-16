@@ -19,25 +19,49 @@ const useViewController = () => {
 
     const total = useMemo(() => {
         let x = 0
-        switch(plan) {
-            case 0:
-                x = 9
-                break;
-            case 1:
-                x = 12
-                break;
-            case 2:
-                x = 15
-                break;
+        if (!data.annual) {
+            switch(plan) {
+                case 0:
+                    x = 9
+                    break;
+                case 1:
+                    x = 12
+                    break;
+                case 2:
+                    x = 15
+                    break;
+            }
+            if (data.online) {
+                x = x + 1
+            }
+            if (data.storage) {
+                x = x + 2
+            }
+            if (data.profile) {
+                x = x + 2
+            }
         }
-        if (data.online) {
-            x = x + 1
-        }
-        if (data.storage) {
-            x = x + 2
-        }
-        if (data.profile) {
-            x = x + 2
+        else {
+            switch(plan) {
+                case 0:
+                    x = 90
+                    break;
+                case 1:
+                    x = 120
+                    break;
+                case 2:
+                    x = 150
+                    break;
+            }
+            if (data.online) {
+                x = x + 10
+            }
+            if (data.storage) {
+                x = x + 20
+            }
+            if (data.profile) {
+                x = x + 20
+            }
         }
         return x
     }, [data, plan])
