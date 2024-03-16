@@ -3,7 +3,7 @@ import { DATA_INITIAL_VALUE, validSteps } from "./interface"
 
 const useViewController = () => {
 
-    const numberRegex = /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d*)\)?)[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?)+)(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/i
+    const numberRegex = /^09\d{9}/g
 
     const [data, setData] = useState(DATA_INITIAL_VALUE)
     const [step, setStep] = useState(1)
