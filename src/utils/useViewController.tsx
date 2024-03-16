@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { DATA_INITIAL_VALUE } from "./interface"
+import { DATA_INITIAL_VALUE, validSteps } from "./interface"
 
 const useViewController = () => {
 
@@ -57,7 +57,7 @@ const useViewController = () => {
         return x
     }, [data])
 
-    const changeStep = (where : number) => {
+    const changeStep = (where : validSteps) => {
         if (data.number && data.name && data.email) {
             switch(where) {
                 case 1:
@@ -130,7 +130,7 @@ const useViewController = () => {
         }
     }
 
-    const handlePlan = (selection : number) => {
+    const handlePlan = (selection : 0 | 1 | 2) => {
         setData({
             ...data,
             plan: selection

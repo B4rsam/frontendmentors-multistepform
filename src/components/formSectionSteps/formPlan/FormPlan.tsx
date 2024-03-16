@@ -2,10 +2,10 @@ import s from './formplan.module.sass'
 import Radio from '../../primitives/Radio/Radio'
 import Toggle from '../../primitives/Toggle/Toggle'
 import { FC } from 'react'
-import { dataObject } from '../../../utils/interface'
+import { dataObject, validPlans } from '../../../utils/interface'
 
 interface IFormPlan {
-    handlePlan: (selection: number) => void
+    handlePlan: (selection: validPlans) => void
     handleAnnual: () => void
     arcade: string
     advanced: string

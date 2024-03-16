@@ -1,10 +1,11 @@
 import { FC } from 'react'
 import Button from '../primitives/Button/Button'
 import s from './submitsection.module.sass'
+import { validSteps } from '../../utils/interface'
 
 interface ISubmitSection {
     step: number
-    changeStep: (where: number) => void
+    changeStep: (where: validSteps) => void
 }
 
 const SubmitSection : FC<ISubmitSection>= ({step, changeStep}) => {

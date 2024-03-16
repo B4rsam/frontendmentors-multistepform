@@ -9,6 +9,10 @@ export interface dataObject {
     profile: boolean
 }
 
+export type validSteps = 1 | 2 | 3 | 4 | 5
+export type validPlans = 0 | 1 | 2
+export type validAddons = 1 | 2 | 3
+
 const DATA_INITIAL_VALUE : dataObject= {
     name: null,
     email: null,

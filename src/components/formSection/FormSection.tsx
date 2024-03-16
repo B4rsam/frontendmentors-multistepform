@@ -8,15 +8,15 @@ import FormPlan from '../formSectionSteps/formPlan/FormPlan'
 import FormAddon from '../formSectionSteps/formAddon/FormAddon'
 import FormFinal from '../formSectionSteps/formFinal/FormFinal'
 import FormSummary from '../formSectionSteps/formSummary/FormSummary'
-import { dataObject } from '../../utils/interface'
+import { dataObject, validPlans, validSteps } from '../../utils/interface'
 
 interface formSection {
     data: dataObject
-    step: number
+    step: validSteps
     total: number
     handleService: (e: any, id: number) => void
-    changeStep: (where: number) => void 
-    handlePlan: (selection : number) => void
+    changeStep: (where: validSteps) => void 
+    handlePlan: (selection : validPlans) => void
     handleInput: (e: any, plan: number) => void
     handleAnnual: () => void
 }

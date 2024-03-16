@@ -1,12 +1,12 @@
 import s from './formsummary.module.sass'
 import Button from '../../primitives/Button/Button'
 import { FC } from 'react'
-import { dataObject } from '../../../utils/interface'
+import { dataObject, validSteps } from '../../../utils/interface'
 
 interface IFormSummary {
     data: dataObject
     total: number
-    changeStep: (where: number) => void
+    changeStep: (where: validSteps) => void
 }
 const FormSummary : FC<IFormSummary>= ({data, total, changeStep}) => {
     return (
