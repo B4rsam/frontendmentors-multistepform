@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
-import { DATA_INITIAL_VALUE, validSteps } from "./interface"
+import { DATA_INITIAL_VALUE, } from "./interface"
 
 const useViewController = () => {
 
@@ -57,7 +57,7 @@ const useViewController = () => {
         return x
     }, [data])
 
-    const changeStep = (where : validSteps) => {
+    const changeStep = (where : number) => {
         if (data.number && data.name && data.email) {
             if ([1,2,3,4,5].includes(where)) {
                 setStep(where)

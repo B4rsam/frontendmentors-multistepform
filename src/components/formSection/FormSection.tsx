@@ -12,7 +12,7 @@ import { dataObject, validPlans, validSteps } from '../../utils/interface'
 
 interface formSection {
     data: dataObject
-    step: validSteps
+    step: number
     total: number
     handleService: (e: any, id: number) => void
     changeStep: (where: validSteps) => void 
