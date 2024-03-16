@@ -6,11 +6,12 @@ interface IForm {
     type: string
     placeHolder: string
     onChange: any
+    value?: string
 }
 
-const Form : FC<IForm> = ({className, type, placeHolder, onChange, ...other}) => {
+const Form : FC<IForm> = ({className, type, placeHolder, onChange, value, ...other}) => {
     return (
-        <input {...other} type={type} className={`${s.form} ${s[type]} ${className}`} placeholder={placeHolder} onChange={onChange}/>
+        <input {...other} value={value} type={type} className={`${s.form} ${s[type]} ${className}`} placeholder={placeHolder} onChange={onChange}/>
     )
 }
 
