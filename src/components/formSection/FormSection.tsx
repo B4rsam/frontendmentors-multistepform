@@ -35,7 +35,7 @@ const FormSection : FC<formSection> = ({step, plan, total, data, handlePlan, han
                 )
             case 3:
                 return (
-                    <FormAddon data={data} handleService={handleService} data={data}/>
+                    <FormAddon data={data} handleService={handleService} />
                 )
             case 4:
                 return (

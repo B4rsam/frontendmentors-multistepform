@@ -10,8 +10,9 @@ interface IRadio {
     onClick: (selection : number) => void
     defaultChecked?: boolean
     plan?: number
+    annual?: boolean
 }
-const Radio : FC<IRadio> = ({radioName, className, img, radioTitle, radioPrice, onClick, defaultChecked, plan, ...other}) => {
+const Radio : FC<IRadio> = ({radioName, className, img, radioTitle, radioPrice, onClick, defaultChecked, annual, plan, ...other}) => {
     return (
         <label data-status={false} className={s.radioHolder}>
             <input {...other} onClick={onClick} type="radio" name={radioName} className={`${s.radioButton} ${className}`} defaultChecked={defaultChecked} />
@@ -19,6 +20,7 @@ const Radio : FC<IRadio> = ({radioName, className, img, radioTitle, radioPrice, 
                 <img src={img}/>
                 <p className={s.radioTitle}>{radioTitle}</p>
                 <p className={s.radioPrice}>{radioPrice}</p>
+                {annual ? <p className={s.annualMonth}>2 Months free</p> : null}
             </div>
         </label>
     )
