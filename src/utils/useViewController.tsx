@@ -9,6 +9,7 @@ const useViewController = () => {
         email: null,
         number: null,
         plan: 0,
+        annual: false,
         online: false,
         storage: false,
         profile: false,
@@ -117,6 +118,13 @@ const useViewController = () => {
         })
     }
 
+    const handleAnnual = () => {
+        setData({
+            ...data,
+            annual: !data.annual
+        })
+    }
+
     const writeToStorage = () => {
         window.localStorage.setItem("data", JSON.stringify(data))
     }
@@ -131,6 +139,7 @@ const useViewController = () => {
         handlePlan,
         writeToStorage,
         handleInput,
+        handleAnnual,
     }
 }
 
