@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { DATA_INITIAL_VALUE, validSteps } from "./interface"
 
 const useViewController = () => {
@@ -59,24 +59,11 @@ const useViewController = () => {
 
     const changeStep = (where : validSteps) => {
         if (data.number && data.name && data.email) {
-            switch(where) {
-                case 1:
-                    setStep(1)
-                    break;
-                case 2:
-                    setStep(2)
-                    break;
-                case 3:
-                    setStep(3)
-                    break;
-                case 4:
-                    setStep(4)
-                    break;
-                case 5:
-                    setStep(5)
-                    break;
-                default:
-                    throw new Error("invalid step")
+            if ([1,2,3,4,5].includes(where)) {
+                setStep(where)
+            }
+            else {
+                throw Error("Invalid step")
             }
             writeToStorage()    
         }
@@ -145,8 +132,14 @@ const useViewController = () => {
     }
 
     const writeToStorage = () => {
-        window.localStorage.setItem("data", JSON.stringify(data))
+        localStorage.setItem("data", JSON.stringify(data))
     }
+
+    useEffect(() => {
+        if (localStorage.getItem("data")) {
+            setData(JSON.parse(String(localStorage.getItem("data"))))    
+        }
+    }, [])
 
     return {
         step,
