@@ -4,31 +4,13 @@ import s from './submitsection.module.sass'
 
 interface ISubmitSection {
     step: number
-    data: any
     changeStep: (where: number) => void
-    writeToStorage: () => void
 }
 
-const SubmitSection : FC<ISubmitSection>= ({step, changeStep, writeToStorage, data}) => {
+const SubmitSection : FC<ISubmitSection>= ({step, changeStep}) => {
 
     const handleSubmit = () => {
-        switch(step) {
-            case 1:
-                if (data.name === null || data.email === null || data.number === null) {
-                    break;
-                }
-                else {
-                    changeStep(2)
-                    break;
-                }
-            case 4:
-                changeStep(5)
-                break;
-
-            default:
-                changeStep(step+1)
-
-        }
+        changeStep(step+1)
     }
 
     return (

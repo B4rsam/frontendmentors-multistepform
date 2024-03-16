@@ -13,17 +13,16 @@ function App() {
     handleService,
     changeStep,
     handlePlan,
-    writeToStorage,
     handleInput,
     handleAnnual,
   } = useViewController()
 
   return (
     <div className={s.mainBody}>
-      <FormSteps changeStep={changeStep} step={step} data={data}/>
+      <FormSteps changeStep={changeStep} step={step} />
       <div className={s.rightBox}>
         <FormSection step={step} total={total} handlePlan={handlePlan} data={data} handleService={handleService} changeStep={changeStep}  handleInput={handleInput} handleAnnual={handleAnnual}/>
-        <SubmitSection step={step} changeStep={changeStep} writeToStorage={writeToStorage} data={data}/>
+        <SubmitSection step={step} changeStep={changeStep} />
       </div>
     </div>
   )

@@ -66,24 +66,28 @@ const useViewController = () => {
     }, [data])
 
     const changeStep = (where : number) => {
-        switch(where) {
-            case 1:
-                setStep(1)
-                break;
-            case 2:
-                setStep(2)
-                break;
-            case 3:
-                setStep(3)
-                break;
-            case 4:
-                setStep(4)
-                break;
-            case 5:
-                setStep(5)
-                break;
+        if (data.number && data.name && data.email) {
+            switch(where) {
+                case 1:
+                    setStep(1)
+                    break;
+                case 2:
+                    setStep(2)
+                    break;
+                case 3:
+                    setStep(3)
+                    break;
+                case 4:
+                    setStep(4)
+                    break;
+                case 5:
+                    setStep(5)
+                    break;
+                default:
+                    throw new Error("invalid step")
+            }
+            writeToStorage()    
         }
-        writeToStorage()
     }
 
     const handleService = (value : boolean, id : number) => {

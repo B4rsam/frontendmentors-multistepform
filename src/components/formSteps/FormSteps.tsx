@@ -4,14 +4,11 @@ import s from './formsteps.module.sass'
 type whereTo = 1 | 2 | 3 | 4
 interface formSteps {
     step: number
-    data: any
     changeStep: (where : whereTo) => void
 }
-const FormSteps : FC<formSteps>= ({changeStep, step, data}) => {
+const FormSteps : FC<formSteps>= ({changeStep, step}) => {
     const handleChange = (step: whereTo) => {
-        if (data.name && data.number && data.email) {
-            changeStep(step)
-        }
+        changeStep(step)
     }
 
     return (
