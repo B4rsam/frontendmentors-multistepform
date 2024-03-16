@@ -1,15 +1,5 @@
 import { useMemo, useState } from "react"
 
-interface dataType {
-    name: string | null
-    email: string | null
-    number: string | null
-    plan: number | null
-    online: boolean
-    storage: boolean
-    profile: boolean
-}
-
 const useViewController = () => {
 
     const [data, setData] = useState({
@@ -90,7 +80,6 @@ const useViewController = () => {
                 })
                 break;
         }
-        console.log(data)
     }
 
     const handleInput = (e : any, form : number) => {
@@ -114,11 +103,14 @@ const useViewController = () => {
                 })
                 break;
         }
-        console.log(data)
     }
 
     const handlePlan = (selection : number) => {
         setPlan(selection)
+        setData({
+            ...data,
+            plan: selection
+        })
     }
 
     const writeToStorage = () => {

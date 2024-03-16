@@ -15,7 +15,7 @@ interface formSection {
     step: number
     total: number
     plan: number
-    handleService: any
+    handleService: (e: any, id: number) => void
     changeStep: (where: number) => void 
     handlePlan: (selection : number) => void
     handleInput: (e: any, plan: number) => void
@@ -26,7 +26,7 @@ const FormSection : FC<formSection> = ({step, plan, total, data, handlePlan, han
         switch(step) {
             case 1:
                 return (
-                    <FormInfo handleInput={handleInput}/>
+                    <FormInfo handleInput={handleInput} data={data}/>
                 )
             case 2:
                 return (

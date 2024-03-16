@@ -7,7 +7,7 @@ interface ICheckbox {
     price: string
     defaultChecked: boolean
     id: number
-    handleService: (e: any, id: number) => void
+    handleService: any
 }
 
 const Checkbox : FC<ICheckbox>= ({title, defaultChecked, description, price, id, handleService, ...other}) => {
@@ -15,7 +15,7 @@ const Checkbox : FC<ICheckbox>= ({title, defaultChecked, description, price, id,
     return (
         <div className={s.holder}>
             <div className={s.rightSide}>
-                <input defaultChecked={defaultChecked} type="checkbox" onChange={(e) => handleService(e.target.checked,id)}/>
+                <input defaultChecked={defaultChecked} type="checkbox" onChange={handleService}/>
                 <div className={s.checkboxContent}>
                     <p className={s.title}>{title}</p>
                     <p className={s.description}>{description}</p>
