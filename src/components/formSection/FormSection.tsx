@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import s from './formsection.module.sass'
 import thanks from '../../assets/images/icon-thank-you.svg'
 import arcade from '../../assets/images/icon-arcade.svg'
 import advanced from '../../assets/images/icon-advanced.svg'
