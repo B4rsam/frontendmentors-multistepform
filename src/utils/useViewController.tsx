@@ -94,31 +94,6 @@ const useViewController = () => {
         }
     }
 
-    const handleInput = (e : any, form : number) => {
-        switch(form) {
-            case 1:
-                setData({
-                    ...data,
-                    name: e.target.value
-                })
-                break;
-            case 2:
-                setData({
-                    ...data,
-                    email: e.target.value
-                })
-                break;
-            case 3:
-                if (numberRegex.test(e.target.value)) {
-                    setData({
-                        ...data,
-                        number: e.target.value
-                    })
-                }
-                break;
-        }
-    }
-
     const handlePlan = (selection : 0 | 1 | 2) => {
         setData({
             ...data,
@@ -155,10 +130,12 @@ const useViewController = () => {
                         break;
 
                     case 3:
-                        setData({
-                            ...data,
-                            number: value
-                        })
+                        if (numberRegex.test(value)) {
+                            setData({
+                                ...data,
+                                number: value
+                            })    
+                        }
                         break;
                 }
                 break;
@@ -216,7 +193,6 @@ const useViewController = () => {
         changeStep,
         handlePlan,
         writeToStorage,
-        handleInput,
         handleAnnual,
     }
 }
