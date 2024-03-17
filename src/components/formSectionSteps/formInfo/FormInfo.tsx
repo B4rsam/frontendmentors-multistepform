@@ -18,7 +18,7 @@ const FormInfo : FC<IFormInfo>= ({handleInput, data}) => {
             <p className={s.formLabel}>Email</p>
             <Form className={s.nameForm} type="textfield" value={data.email ? String(data.email) : ""} placeHolder={"johndoe@gmail.com"} onChange={(e : any) => handleInput(e,2)}/>
             <p className={s.formLabel}>Number</p>
-            <Form className={s.nameForm} type="textfield" value={data.number ? String(data.number) : ""} placeHolder={"+1 234 5678"} onChange={(e : any) => handleInput(e,3)}/>
+            <Form className={s.nameForm} type="textfield" placeHolder={data.number ? String(data.number) : "+1 234 5678"} onChange={(e : any) => handleInput(e,3)}/>
         </div> 
     )
 }
