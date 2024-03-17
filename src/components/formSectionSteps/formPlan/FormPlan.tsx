@@ -5,14 +5,13 @@ import { FC } from 'react'
 import { dataActions, dataObject, validPlans } from '../../../utils/interface'
 
 interface IFormPlan {
-    formOperation: (plan: dataActions, selection: validPlans) => void
-    handleAnnual: () => void
+    formOperation: (plan: dataActions, selection?: validPlans) => void
     arcade: string
     advanced: string
     pro: string
     data: dataObject
 }
-const FormPlan : FC<IFormPlan> = ({formOperation, handleAnnual, arcade, advanced, pro, data}) => {
+const FormPlan : FC<IFormPlan> = ({formOperation, arcade, advanced, pro, data}) => {
     return (
         <div className={s.formSection}>
             <p className={s.title}>Select your plan</p>
@@ -24,7 +23,7 @@ const FormPlan : FC<IFormPlan> = ({formOperation, handleAnnual, arcade, advanced
             </div>
             <div className={s.billing}>
                 <p>Monthly</p>
-                <Toggle onChange={handleAnnual} defaultChecked={data.annual}/>
+                <Toggle onChange={() => formOperation("annual")} defaultChecked={data.annual}/>
                 <p>Annual</p>
             </div>
         </div> 

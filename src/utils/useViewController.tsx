@@ -94,13 +94,6 @@ const useViewController = () => {
         }
     }
 
-    const handleAnnual = () => {
-        setData({
-            ...data,
-            annual: !data.annual
-        })
-    }
-
     const writeToStorage = () => {
         localStorage.setItem("data", JSON.stringify(data))
     }
@@ -141,7 +134,7 @@ const useViewController = () => {
             case "annual":
                 setData({
                     ...data,
-                    annual: value
+                    annual: !data.annual
                 })
                 break;
             case "addon":
@@ -185,7 +178,6 @@ const useViewController = () => {
         handleService,
         changeStep,
         writeToStorage,
-        handleAnnual,
     }
 }
 
