@@ -14,11 +14,10 @@ interface formSection {
     data: dataObject
     step: number
     total: number
-    handleService: (e: any, id: number) => void
     changeStep: (where: validSteps) => void 
-    formOperation: (action: dataActions, value: any, ...args: any) => void
+    formOperation: (action: dataActions, value?: any, args?: any) => void
 }
-const FormSection : FC<formSection> = ({step, total, data, handleService, changeStep, formOperation}) => {
+const FormSection : FC<formSection> = ({step, total, data, changeStep, formOperation}) => {
 
     const handleStep = () => {
         switch(step) {
@@ -32,7 +31,7 @@ const FormSection : FC<formSection> = ({step, total, data, handleService, change
                 )
             case 3:
                 return (
-                    <FormAddon data={data} handleService={handleService} />
+                    <FormAddon data={data} formOperation={formOperation} />
                 )
             case 4:
                 return (

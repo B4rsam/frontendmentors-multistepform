@@ -71,34 +71,11 @@ const useViewController = () => {
         }
     }
 
-    const handleService = (value : boolean, id : number) => {
-        switch(id) {
-            case 0:
-                setData({
-                    ...data,
-                    online: value
-                })
-                break;
-            case 1:
-                setData({
-                    ...data,
-                    storage: value
-                })
-                break;
-            case 2:
-                setData({
-                    ...data,
-                    profile: value
-                })
-                break;
-        }
-    }
-
     const writeToStorage = () => {
         localStorage.setItem("data", JSON.stringify(data))
     }
 
-    const formOperation = (action: dataActions, value: any, args?: any) => {
+    const formOperation = (action: dataActions, value?: any, args?: any) => {
         switch(action) {
             case "info":
                 switch(args) {
@@ -114,7 +91,6 @@ const useViewController = () => {
                             email: value
                         })
                         break;
-
                     case 3:
                         if (numberRegex.test(value)) {
                             setData({
@@ -138,23 +114,23 @@ const useViewController = () => {
                 })
                 break;
             case "addon":
-                switch(args.addon) {
+                switch(args) {
                     case 1:
                         setData({
                             ...data,
-                            online: value
+                            online: !data.online
                         })
                         break;
                     case 2:
                         setData({
                             ...data,
-                            storage: value
+                            storage: !data.storage
                         })
                         break;
                     case 3:
                         setData({
                             ...data,
-                            profile: value
+                            profile: !data.profile
                         })
                         break;
                 }
@@ -175,7 +151,6 @@ const useViewController = () => {
         total,
         data,
         formOperation,
-        handleService,
         changeStep,
         writeToStorage,
     }
