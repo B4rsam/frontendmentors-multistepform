@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
-import { DATA_INITIAL_VALUE, } from "./interface"
+import { DATA_INITIAL_VALUE, validPlans, } from "./interface"
+
+type dataActions = "info" | "plan" | "addon" | "annual"
 
 const useViewController = () => {
 
@@ -135,6 +137,69 @@ const useViewController = () => {
         localStorage.setItem("data", JSON.stringify(data))
     }
 
+    const formOperation = (action: dataActions, value: any, ...args : any) => {
+        switch(action) {
+            case "info":
+                switch(args.field) {
+                    case 1:
+                        setData({
+                            ...data,
+                            name: value
+                        })
+                        break;
+                    case 2:
+                        setData({
+                            ...data,
+                            email: value
+                        })
+                        break;
+                    case 3:
+                        setData({
+                            ...data,
+                            number: value
+                        })
+                        break;
+                }
+                break;
+            case "plan":
+                setData({
+                    ...data,
+                    plan: value
+                })
+                break;
+            case "annual":
+                setData({
+                    ...data,
+                    annual: value
+                })
+                break;
+            case "addon":
+                switch(args.addon) {
+                    case 1:
+                        setData({
+                            ...data,
+                            online: value
+                        })
+                        break;
+                    case 2:
+                        setData({
+                            ...data,
+                            storage: value
+                        })
+                        break;
+                    case 3:
+                        setData({
+                            ...data,
+                            profile: value
+                        })
+                        break;
+                }
+                break;
+            default:
+                throw Error("Invalid action")
+        }
+    }
+
     useEffect(() => {
         if (localStorage.getItem("data")) {
             setData(JSON.parse(String(localStorage.getItem("data"))))    
@@ -145,6 +210,7 @@ const useViewController = () => {
         step,
         total,
         data,
+        formOperation,
         handleService,
         changeStep,
         handlePlan,
