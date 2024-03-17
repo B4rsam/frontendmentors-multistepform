@@ -1,6 +1,7 @@
 export type validSteps = 1 | 2 | 3 | 4 | 5
 export type validPlans = 0 | 1 | 2
 export type validAddons = 1 | 2 | 3
+export type dataActions = "info" | "plan" | "addon" | "annual"
 
 export interface dataObject {
     name: string | null

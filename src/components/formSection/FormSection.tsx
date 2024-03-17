@@ -8,7 +8,7 @@ import FormPlan from '../formSectionSteps/formPlan/FormPlan'
 import FormAddon from '../formSectionSteps/formAddon/FormAddon'
 import FormFinal from '../formSectionSteps/formFinal/FormFinal'
 import FormSummary from '../formSectionSteps/formSummary/FormSummary'
-import { dataObject, validPlans, validSteps } from '../../utils/interface'
+import { dataObject, validPlans, validSteps, dataActions } from '../../utils/interface'
 
 interface formSection {
     data: dataObject
@@ -17,16 +17,16 @@ interface formSection {
     handleService: (e: any, id: number) => void
     changeStep: (where: validSteps) => void 
     handlePlan: (selection : validPlans) => void
-    handleInput: (e: any, plan: number) => void
+    formOperation: (action: dataActions, value: any, ...args: any) => void
     handleAnnual: () => void
 }
-const FormSection : FC<formSection> = ({step, total, data, handlePlan, handleService, changeStep, handleInput, handleAnnual}) => {
+const FormSection : FC<formSection> = ({step, total, data, handlePlan, handleService, changeStep, formOperation, handleAnnual}) => {
 
     const handleStep = () => {
         switch(step) {
             case 1:
                 return (
-                    <FormInfo handleInput={handleInput} data={data}/>
+                    <FormInfo formOperation={formOperation} data={data}/>
                 )
             case 2:
                 return (

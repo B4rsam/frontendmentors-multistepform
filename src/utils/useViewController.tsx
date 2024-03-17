@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
-import { DATA_INITIAL_VALUE, validPlans, } from "./interface"
+import { DATA_INITIAL_VALUE, validPlans, dataActions} from "./interface"
 
-type dataActions = "info" | "plan" | "addon" | "annual"
+
 
 const useViewController = () => {
 
@@ -137,10 +137,10 @@ const useViewController = () => {
         localStorage.setItem("data", JSON.stringify(data))
     }
 
-    const formOperation = (action: dataActions, value: any, ...args : any) => {
+    const formOperation = (action: dataActions, value: any, args: any) => {
         switch(action) {
             case "info":
-                switch(args.field) {
+                switch(args) {
                     case 1:
                         setData({
                             ...data,
@@ -153,6 +153,7 @@ const useViewController = () => {
                             email: value
                         })
                         break;
+
                     case 3:
                         setData({
                             ...data,
