@@ -6,11 +6,10 @@ interface ICheckbox {
     description: string
     price: string
     defaultChecked: boolean
-    id: number
     formOperation: any
 }
 
-const Checkbox : FC<ICheckbox>= ({title, defaultChecked, description, price, id, formOperation, ...other}) => {
+const Checkbox : FC<ICheckbox>= ({title, defaultChecked, description, price, formOperation }) => {
 
     return (
         <div className={s.holder}>
