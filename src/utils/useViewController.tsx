@@ -94,13 +94,6 @@ const useViewController = () => {
         }
     }
 
-    const handlePlan = (selection : 0 | 1 | 2) => {
-        setData({
-            ...data,
-            plan: selection
-        })
-    }
-
     const handleAnnual = () => {
         setData({
             ...data,
@@ -112,7 +105,7 @@ const useViewController = () => {
         localStorage.setItem("data", JSON.stringify(data))
     }
 
-    const formOperation = (action: dataActions, value: any, args: any) => {
+    const formOperation = (action: dataActions, value: any, args?: any) => {
         switch(action) {
             case "info":
                 switch(args) {
@@ -191,7 +184,6 @@ const useViewController = () => {
         formOperation,
         handleService,
         changeStep,
-        handlePlan,
         writeToStorage,
         handleAnnual,
     }
